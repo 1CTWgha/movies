@@ -1,0 +1,39 @@
+{
+  "name": "project2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/1CTWgha/movies.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/1CTWgha/movies/issues"
+  },
+  "homepage": "https://github.com/1CTWgha/movies#readme",
+  "dependencies": {
+    "bcrypt": "^1.0.2",
+    "body-parser": "^1.15.2",
+    "connect-flash": "^0.1.1",
+    "dotenv": "^4.0.0",
+    "ejs": "^2.5.5",
+    "express": "^4.14.0",
+    "express-ejs-layouts": "^2.2.0",
+    "express-session": "^1.14.2",
+    "fs": "0.0.1-security",
+    "morgan": "^1.7.0",
+    "multer": "^1.2.1",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "path": "^0.12.7",
+    "pg": "^6.1.2",
+    "pg-hstore": "^2.3.2",
+    "request": "^2.79.0",
+    "sequelize": "^3.29.0"
+  }
+}
