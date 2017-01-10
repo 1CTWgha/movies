@@ -7,6 +7,7 @@ var passport = require('./config/ppConfig');
 var flash = require('connect-flash');
 var isLoggedIn = require('./middleware/isLoggedIn');
 var app = express();
+var request= require('request');
 
 app.set('view engine', 'ejs');
 
@@ -39,8 +40,26 @@ app.get('/', function(req, res) {
 });
 
 app.get('/profile', isLoggedIn, function(req, res) {
-  res.render('profile');
+  var url = 'http://www.omdbapi.com/?t=Star+Wars&y=&plot=short&r=json';
+  request.get( url, function(error, response, body) {
+    var movie = JSON.parse(body);
+    res.render('profile', {
+      movie: movie,
+      movies: []
+    });
+  });
 });
+
+app.post('/profile', isLoggedIn, function(req, res) {
+  var query = req.body.title;
+  var url = "http://www.omdbapi.com/?s="+query+"&y=&plot=short&r=json";
+console.log(url);
+  request.post( url, function(error, response, body) {
+    var movies = JSON.parse(body);
+    res.render('profile', {movies: movies});
+  });
+});
+
 
 app.use('/auth', require('./controllers/auth'));
 
