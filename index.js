@@ -40,26 +40,31 @@ app.get('/', function(req, res) {
 });
 
 app.get('/profile', isLoggedIn, function(req, res) {
-  var url = 'http://www.omdbapi.com/?t=Star+Wars&y=&plot=short&r=json';
-  request.get( url, function(error, response, body) {
-    var movie = JSON.parse(body);
     res.render('profile', {
-      movie: movie,
       movies: []
-    });
   });
 });
 
 app.post('/profile', isLoggedIn, function(req, res) {
   var query = req.body.title;
   var url = "http://www.omdbapi.com/?s="+query+"&y=&plot=short&r=json";
-console.log(url);
+  console.log(url);
+
   request.post( url, function(error, response, body) {
-    var movies = JSON.parse(body);
-    res.render('profile', {movies: movies});
+    var movies = JSON.parse(body).Search;
+    console.log(movies);
+
+    res.render('profile', {movies: movies
+    });
   });
 });
 
+app.get("movie/:imdbid", function(req, res){
+  var id = req.params.imdbid;
+  console.log(id);
+  //request to API lookup by IMDB ID (directions on site)
+  //res.render movie detail page
+});
 
 app.use('/auth', require('./controllers/auth'));
 
