@@ -14,11 +14,14 @@ app.use(require('morgan')('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(ejsLayouts);
 
+
 app.use(session({
   secret: process.env.SESSION_SECRET || 'supersecretpassword',
   resave: false,
   saveUninitialized: true
 }));
+
+
 
 app.use(passport.initialize());
 app.use(passport.session());
