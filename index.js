@@ -59,11 +59,21 @@ app.post('/profile', isLoggedIn, function(req, res) {
   });
 });
 
-app.get("movie/:imdbid", function(req, res){
+app.get("/movie/:imdbid", function(req, res){
   var id = req.params.imdbid;
   console.log(id);
   //request to API lookup by IMDB ID (directions on site)
+  var movieUrl = "http://www.omdbapi.com/?i="+id+"&plot=short&r=json";
+  console.log(movieUrl, "This is the movie URL");//
   //res.render movie detail page
+  request.get( movieUrl, function( error, response, body) {
+
+    var movie = JSON.parse(body);
+    console.log(movie, "This is the body data");
+
+    res.render('singlemovie', {movie: movie
+    });
+  });
 });
 
 app.use('/auth', require('./controllers/auth'));

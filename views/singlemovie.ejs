@@ -1,23 +1,19 @@
 <div class="container">
   <div class="well">
-    <h1><%- movie %></h1>
 
-    <h3>Title:</h3>
-    <% title.forEach(function(){ %>
-      <p>
-        <%- title.name %>:
-      </p>
-    <% }); %>
+    <form action="/movie/:imdbid" method="post">
+      <div class="form-group">
+        <label for="title">Title</label>
+      </div>
 
-    <h3>Year:</h3>
-    <p>
-      <%- year %>
-    </p>
+      <h1><%- movie %></h1>
 
-    <h3>Rating:</h3>
-    <p>
-      <%- rating %>
-    </p>
+      <h3>Title:</h3>
+        <p>
+          <%= movie.Title %>:
+        </p>
+        
+    </form>
 
   </div>
 </div>
