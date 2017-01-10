@@ -3,16 +3,39 @@
 
     <form action="/movie/:imdbid" method="post">
       <div class="form-group">
-        <label for="title">Title</label>
+        <label for="title"></label>
       </div>
 
-      <h1><%- movie %></h1>
+      <!-- <h1><%- movie %></h1> -->
 
-      <h3>Title:</h3>
+        <h3>
+          <%= movie.Title %>
+        </h3>
         <p>
-          <%= movie.Title %>:
+          Year: <%= movie.Year %>
         </p>
-        
+        <p>
+          Plot: <%= movie.Plot %>
+        </p>
+        <p>
+          Rating (out of 10): <%= movie.imdbRating %>
+        </p>
+        <p>
+          Rated: <%= movie.Rated %>
+        </p>
+        <p>
+          Awards: <%= movie.Awards %>
+        </p>
+        <p>
+          Director: <%= movie.Director %>
+        </p>
+        <p>
+          Actors: <%= movie.Actors %>
+        </p>
+        <p>
+          <img src="<%= movie.Poster %>" alt="Poster">
+        </p>
+
     </form>
 
   </div>

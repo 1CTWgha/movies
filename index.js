@@ -48,7 +48,7 @@ app.get('/profile', isLoggedIn, function(req, res) {
 app.post('/profile', isLoggedIn, function(req, res) {
   var query = req.body.title;
   var url = "http://www.omdbapi.com/?s="+query+"&y=&plot=short&r=json";
-  console.log(url);
+  console.log("THIS IS FORMATTED URL: ", url);
 
   request.post( url, function(error, response, body) {
     var movies = JSON.parse(body).Search;
