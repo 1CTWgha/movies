@@ -1,3 +1,19 @@
 <h1>Watchlist!</h1>
 
-<% include partials/navbar %>
+<div class="container">
+  <div class="well">
+
+    <% include partials/navbar %>
+
+    <% watchlist.forEach(function(list){ %>
+    <p>
+      <a href="/tags/<%= watchlist.id %>">
+      #<%= list.name %>
+      </a>
+    </p>
+
+  <% }); %>
+
+
+  </div>
+</div>
