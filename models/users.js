@@ -40,6 +40,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     classMethods: {
       associate: function(models) {
+        models.user.belongsToMany(models.watchlist, {through: "userwatchlist"});
         // associations can be defined here
       }
     },
