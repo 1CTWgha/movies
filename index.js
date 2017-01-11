@@ -39,6 +39,10 @@ app.get('/', function(req, res) {
   res.render('index');
 });
 
+app.get('/watchlist', function(req, res) {
+  res.render('watchlist');
+});
+
 app.get('/profile', isLoggedIn, function(req, res) {
     res.render('profile', {
       movies: []
@@ -75,6 +79,8 @@ app.get("/movie/:imdbid", function(req, res){
     });
   });
 });
+
+
 
 app.use('/auth', require('./controllers/auth'));
 
