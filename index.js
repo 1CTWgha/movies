@@ -136,6 +136,5 @@ app.delete('/movie/:id',function(req,res){
 
 app.use('/auth', require('./controllers/auth'));
 
-if (!module.parent) {
+
   app.listen(process.env.PORT || 3000);
-}
