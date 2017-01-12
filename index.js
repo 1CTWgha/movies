@@ -121,9 +121,8 @@ app.post("/watchlist", isLoggedIn, function(req, res){
 });
 
 app.delete('/movie/:id',function(req,res){
-  db.watchlist.findById(req.params.id).then(function(movie){
-    console.log("THIS IS MOVIE IN DELETE", movie);
-    movie.destroy();
+  req.user.removeWatchlist(req.params.id).then(function(user) {
+    console.log("THIS IS MOVIE IN DELETE", user);
     res.send({message:'success destroying'});
   });
 });
