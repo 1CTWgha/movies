@@ -1,27 +1,31 @@
-<h1>Watchlist!</h1>
 
-<div class="container">
-  <div class="col-sm-8">
+
 
     <% include partials/navbar %>
 
+    <h1>Watchlist!</h1>
+
     <% list.forEach(function(movie){ %>
-
-    <div class="form-group">
-      <label for="title"></label>
-    </div>
-
-      <h3>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h3 class="wborder">
         <%= movie.title %>
       </h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-4">
       <p>
-        Year: <%= movie.year %>
+        <img src="<%= movie.poster %>" alt="Poster">
       </p>
+    </div>
+    <div class="col-xs-8">
       <p>
         Plot: <%= movie.plot %>
       </p>
       <p>
-        Rating (out of 10): <%= movie.imdbRating %>
+        Rating (out of 10): <%= movie.rating %>
       </p>
       <p>
         Rated: <%= movie.rated %>
@@ -35,11 +39,16 @@
       <p>
         Actors: <%= movie.actors %>
       </p>
-      <p>
-        <img src="<%= movie.poster %>" alt="Poster">
-      </p>
+    </div>
 
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
       <a href="/movie/<%= movie.id %>" class="btn btn-danger delete-link">Delete From Watchlist</a>
-<% }); %>
-</div>
-</div>
+    </div>
+  </div>
+
+
+  </div>
+
+  <% }); %>
