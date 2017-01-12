@@ -15,6 +15,9 @@ app.set('view engine', 'ejs');
 app.use(require('morgan')('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(ejsLayouts);
+app.use(express.static('static'));
+app.use(express.static('files'));
+
 
 
 app.use(session({
@@ -117,13 +120,11 @@ app.post("/watchlist", isLoggedIn, function(req, res){
   });
 });
 
-app.delete('/movie/:imdbid',function(req,res){
-  db.watchlist.findById(req.params.imdbRating).then(function(movie){
+app.delete('/movie/:id',function(req,res){
+  db.watchlist.findById(req.params.id).then(function(movie){
     console.log("THIS IS MOVIE IN DELETE", movie);
     movie.destroy();
     res.send({message:'success destroying'});
-  }, function(){
-    res.render('watchlist');
   });
 });
 
