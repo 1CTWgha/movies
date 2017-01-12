@@ -40,14 +40,23 @@ app.get('/', function(req, res) {
   res.render('index');
 });
 
+// app.get('/watchlist', function(req, res) {
+//   db.watchlist.findAll().then(function(list){
+//     console.log("THIS IS THE LIST ITEM",list);
+//     res.render('watchlist', {
+//       list: list
+//     });
+//   });
+// });
+
 app.get('/watchlist', function(req, res) {
-  db.watchlist.findAll().then(function(list){
-    console.log("THIS IS THE LIST ITEM",list);
+  req.user.getWatchlists().then(function(list) {
     res.render('watchlist', {
-      list: list
+        list:list
+      });
     });
   });
-});
+
 
 app.get('/profile', isLoggedIn, function(req, res) {
     res.render('profile', {
@@ -93,17 +102,28 @@ app.post("/watchlist", isLoggedIn, function(req, res){
   db.watchlist.findOrCreate({
     where: {title: req.body.Title},
     defaults: {
-    plot: req.body.Plot,
-    rating: req.body.imdbRating,
-    rated: req.body.Rated,
-    awards: req.body.Awards,
-    director: req.body.Director,
-    actors: req.body.Actors,
-    poster: req.body.Poster
-  }
-}).then(function(movie){
-    res.redirect('/watchlist');
+      plot: req.body.Plot,
+      rating: req.body.imdbRating,
+      rated: req.body.Rated,
+      awards: req.body.Awards,
+      director: req.body.Director,
+      actors: req.body.Actors,
+      poster: req.body.Poster
+    }
+  }).spread(function(movie, created){
+    req.user.addWatchlist(movie).then(function(user) {
+      res.redirect('/watchlist');
+    });
+  });
+});
 
+app.delete('/movie/:imdbid',function(req,res){
+  db.watchlist.findById(req.params.imdbRating).then(function(movie){
+    console.log("THIS IS MOVIE IN DELETE", movie);
+    movie.destroy();
+    res.send({message:'success destroying'});
+  }, function(){
+    res.render('watchlist');
   });
 });
 
