@@ -41,7 +41,12 @@ app.get('/', function(req, res) {
 });
 
 app.get('/watchlist', function(req, res) {
-  res.render('watchlist');
+  db.watchlist.findAll().then(function(list){
+    console.log("THIS IS THE LIST ITEM",list);
+    res.render('watchlist', {
+      list: list
+    });
+  });
 });
 
 app.get('/profile', isLoggedIn, function(req, res) {
@@ -74,12 +79,38 @@ app.get("/movie/:imdbid", function(req, res){
   request.get( movieUrl, function( error, response, body) {
 
     var movie = JSON.parse(body);
-    console.log(movie, "This is the body data");
+    console.log(movie, "THIS IS THE MOVIE DATA");
 
-    res.render('singlemovie', {movie: movie
-    });
+    res.render('singlemovie', {movie: movie});
   });
 });
+
+//POST added item to watchlist
+app.post("/watchlist", isLoggedIn, function(req, res){
+  console.log("got form data", req.body);
+  console.log("This is the PLOT i want ot add: ", req.body.Plot);
+  console.log("This is the title i want ot add: ", req.body.Title);
+  db.watchlist.findOrCreate({
+    where: {title: req.body.Title},
+    defaults: {
+    plot: req.body.Plot,
+    rating: req.body.imdbRating,
+    rated: req.body.Rated,
+    awards: req.body.Awards,
+    director: req.body.Director,
+    actors: req.body.Actors,
+    poster: req.body.Poster
+  }
+}).then(function(movie){
+    res.redirect('/watchlist');
+
+  });
+});
+
+//Display all saved items
+// app.get("/watchlist", isLoggedIn, function(req, res) {
+//   db.user.findOne({where: {}})
+// });
 
 
 

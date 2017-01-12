@@ -1,19 +1,45 @@
 <h1>Watchlist!</h1>
 
 <div class="container">
-  <div class="well">
+  <div class="col-sm-8">
 
     <% include partials/navbar %>
 
-    <% watchlist.forEach(function(list){ %>
-    <p>
-      <a href="/tags/<%= watchlist.id %>">
-      #<%= list.name %>
-      </a>
-    </p>
+    <% list.forEach(function(movie){ %>
 
-  <% }); %>
+    <div class="form-group">
+      <label for="title"></label>
+    </div>
+
+      <h3>
+        <%= movie.title %>
+      </h3>
+      <p>
+        Year: <%= movie.year %>
+      </p>
+      <p>
+        Plot: <%= movie.plot %>
+      </p>
+      <p>
+        Rating (out of 10): <%= movie.imdbRating %>
+      </p>
+      <p>
+        Rated: <%= movie.rated %>
+      </p>
+      <p>
+        Awards: <%= movie.awards %>
+      </p>
+      <p>
+        Director: <%= movie.director %>
+      </p>
+      <p>
+        Actors: <%= movie.actors %>
+      </p>
+      <p>
+        <img src="<%= movie.poster %>" alt="Poster">
+      </p>
 
 
-  </div>
+<% }); %>
+</div>
 </div>
