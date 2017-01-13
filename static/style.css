@@ -8,12 +8,11 @@ img {
 .wborder {
 }
 .watchlistbody {
-    color: white;
+    color: black;
   }
 .itembody {
-  background-color: grey;
-  border: 2px solid white;
-  border-radius: 1%;
+  background-color: white;
+  border: 2px solid black;
 }
 .poster {
   border: solid white;

@@ -13,15 +13,20 @@
       </div>
 
     </form>
-  </div>
+
+
     <% if (movies) { %>
+      <!-- <h3>Select the item you were searching for:</h3> -->
+
     <% movies.forEach(function(movie){ %>
+
       <a href="/movie/<%= movie.imdbID %>">
-        <%= movie.Title %>
+      <%= movie.Title %>
       </a>
       <br>
     <% }) %>
     <% } %>
+  </div>
 
   </div>
 

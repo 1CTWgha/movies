@@ -43,15 +43,6 @@ app.get('/', function(req, res) {
   res.render('index');
 });
 
-// app.get('/watchlist', function(req, res) {
-//   db.watchlist.findAll().then(function(list){
-//     console.log("THIS IS THE LIST ITEM",list);
-//     res.render('watchlist', {
-//       list: list
-//     });
-//   });
-// });
-
 app.get('/watchlist', function(req, res) {
   req.user.getWatchlists().then(function(list) {
     res.render('watchlist', {
@@ -126,13 +117,6 @@ app.delete('/movie/:id',function(req,res){
     res.send({message:'success destroying'});
   });
 });
-
-//Display all saved items
-// app.get("/watchlist", isLoggedIn, function(req, res) {
-//   db.user.findOne({where: {}})
-// });
-
-
 
 app.use('/auth', require('./controllers/auth'));
 
