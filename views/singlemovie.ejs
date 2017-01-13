@@ -1,7 +1,13 @@
+<% include partials/navbar %>
+
+
 <body class="watchlistbody">
-  <% include partials/navbar %>
+  <div class="container itembody">
+    <div class="row">
+      <div class="col-sm-8">
+      </div>
+    </div>
     <label for="title"></label>
-      <div class="container itembody">
         <div class="row">
           <div class="col-xs-12">
             <h3 class="wborder">
@@ -38,7 +44,6 @@
               Actors: <%= movie.Actors %>
             </p>
         </div>
-          <p>Add a new film or tv show to your watchlist!</p>
 
 
           <form id="" action="/watchlist" method="post">
@@ -52,9 +57,9 @@
             <input type="hidden" name="Actors" value="<%= movie.Actors %>"></input>
             <input type="hidden" name="Poster" value="<%= movie.Poster %>"></input>
 
+            <p>Add a new film or tv show to your watchlist!</p>
             <input type="submit" class="btn btn-primary" value="Add to Watchlist">
           </form>
-          <hr>
         </div>
       </div>
 </body>
