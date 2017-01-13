@@ -12,13 +12,16 @@
     <%- JSON.stringify(currentUser) %>
     <% include partials/alerts %>
     <div class="container">
-      <h1 class="well">Watchlist Central</h1>
-
+      <div  class="row">
+        <h1 class="well col-sm-8">Watchlist Central</h1>
+        <p class="col-sm-4"></p>
+      </div>
       <%- body %>
+      <br>
       <div class="well">
-      <p>Add movies or tv shows and get the plot, reviews, rating, awards, director, actors, and a poster for all your favorite films and tv shows.</p>
-      <p>Once signed in go to your profile and begin adding items and reviewing your watchlist.</p>
-    </div>
+        <p>Add movies or tv shows and get the plot, reviews, rating, awards, director, actors, and a poster for all your favorite films and tv shows.</p>
+        <p>Once signed in go to your profile and begin adding items and reviewing your watchlist.</p>
+      </div>
 
 
       <!-- <p>Weekend Top 5 Domestic Box Office</p>

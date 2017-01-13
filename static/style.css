@@ -2,10 +2,11 @@ body{
   background-image: url(../movieimage.png);
 }
 img {
-  width: 150px;
-  height: 225px;
+  width: 200px;
+  height: 300px;
 }
 .wborder {
+  padding-left: 80px;
 }
 .watchlistbody {
     color: black;
@@ -16,4 +17,18 @@ img {
 }
 .poster {
   border: solid white;
+}
+.imgcenter {
+  margin: 0 auto;
+  text-align: center;
+}
+.buttondelete {
+  margin-top: 20px;
+}
+.buttonsubmit {
+  margin-top: 20px;
+  margin-left: 10px;
+}
+.info {
+  background-color: white;
 }

@@ -5,21 +5,23 @@
 </div>
 <br>
 <br>
-  <h1 class="well">Watchlist!</h1>
-
+  <div class="container">
+    <div  class="row">
+    <h1 class="well col-sm-8">Watchlist!</h1>
+    <p class="col-sm-4"></p>
+  </div>
     <% list.forEach(function(movie){ %>
 <div class="container itembody">
   <!-- <div class="well itembody"> -->
   <div class="row">
     <div class="col-xs-12">
       <h3 class="wborder">
-
         <%= movie.title %>
       </h3>
     </div>
   </div>
   <div class="row">
-    <div class="col-xs-4">
+    <div class="col-xs-4 imgcenter">
       <p>
         <img class="poster" src="<%= movie.poster %>" alt="Poster">
       </p>
@@ -43,17 +45,19 @@
       <p>
         Actors: <%= movie.actors %>
       </p>
+      <div class="row">
+        <div class="col-xs-12">
+          <a href="/movie/<%= movie.id %>" class="btn btn-danger delete-link poster buttondelete">Delete From Watchlist</a>
+        </div>
     </div>
 
   </div>
-  <div class="row">
-    <div class="col-xs-12">
-      <a href="/movie/<%= movie.id %>" class="btn btn-danger delete-link poster">Delete From Watchlist</a>
-    </div>
-  </div>
 
+  </div>
+  <br>
 <!-- </div> -->
   </div>
+  <br>
 
   <% }); %>
 
