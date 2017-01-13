@@ -3,6 +3,7 @@
 
     <% include partials/navbar %>
 
+    <div class="well">
     <h1>Add a new movie or tv show to your watchlist!</h1>
 
     <form action="/profile" method="post">
@@ -12,6 +13,7 @@
       </div>
 
     </form>
+  </div>
     <% if (movies) { %>
     <% movies.forEach(function(movie){ %>
       <a href="/movie/<%= movie.imdbID %>">
@@ -22,4 +24,5 @@
     <% } %>
 
   </div>
+  
 </div>

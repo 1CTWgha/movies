@@ -1,7 +1,21 @@
+body{
+  background-image: url(../movieimage.png);
+}
 img {
   width: 150px;
   height: 225px;
 }
 .wborder {
-  border: 2px solid black;
+}
+.watchlistbody {
+  background-color: grey;
+    color: white;
+  }
+.itembody {
+  background-color: grey;
+  border: 2px solid white;
+  border-radius: 1%;
+}
+.poster {
+  border: solid white;
 }

@@ -1,15 +1,15 @@
+<% include partials/navbar %>
+<body class="watchlistbody">
 
-
-
-    <% include partials/navbar %>
-
-    <h1>Watchlist!</h1>
+  <h1>Watchlist!</h1>
 
     <% list.forEach(function(movie){ %>
-<div class="container">
+<div class="container itembody">
+  <!-- <div class="well itembody"> -->
   <div class="row">
     <div class="col-xs-12">
       <h3 class="wborder">
+
         <%= movie.title %>
       </h3>
     </div>
@@ -17,7 +17,7 @@
   <div class="row">
     <div class="col-xs-4">
       <p>
-        <img src="<%= movie.poster %>" alt="Poster">
+        <img class="poster" src="<%= movie.poster %>" alt="Poster">
       </p>
     </div>
     <div class="col-xs-8">
@@ -44,11 +44,13 @@
   </div>
   <div class="row">
     <div class="col-xs-12">
-      <a href="/movie/<%= movie.id %>" class="btn btn-danger delete-link">Delete From Watchlist</a>
+      <a href="/movie/<%= movie.id %>" class="btn btn-danger delete-link poster">Delete From Watchlist</a>
     </div>
   </div>
 
-
+<!-- </div> -->
   </div>
 
   <% }); %>
+
+</body>

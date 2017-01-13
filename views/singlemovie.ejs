@@ -1,61 +1,60 @@
-<div class="container">
-  <div class="well">
+<body class="watchlistbody">
+  <% include partials/navbar %>
+    <label for="title"></label>
+      <div class="container itembody">
+        <div class="row">
+          <div class="col-xs-12">
+            <h3 class="wborder">
+              <%= movie.Title %>
+            </h3>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-4">
+            <p>
+              <img src="<%= movie.Poster %>" alt="Poster">
+            </p>
+          </div>
+          <div class="col-xs-8">
+            <p>
+              Year: <%= movie.Year %>
+            </p>
+            <p>
+              Plot: <%= movie.Plot %>
+            </p>
+            <p>
+              Rating (out of 10): <%= movie.imdbRating %>
+            </p>
+            <p>
+              Rated: <%= movie.Rated %>
+            </p>
+            <p>
+              Awards: <%= movie.Awards %>
+            </p>
+            <p>
+              Director: <%= movie.Director %>
+            </p>
+            <p>
+              Actors: <%= movie.Actors %>
+            </p>
+        </div>
+          <p>Add a new film or tv show to your watchlist!</p>
 
-    <% include partials/navbar %>
 
-      <div class="form-group">
-        <label for="title"></label>
+          <form id="" action="/watchlist" method="post">
+            <input type="hidden" name="Title" value="<%= movie.Title %>"></input>
+            <input type="hidden" name="Year" value="<%= movie.Year %>"></input>
+            <input type="hidden" name="Plot" value="<%= movie.Plot %>"></input>
+            <input type="hidden" name="imdbRating" value="<%= movie.imdbRating %>"></input>
+            <input type="hidden" name="Rated" value="<%= movie.Rated %>"></input>
+            <input type="hidden" name="Awards" value="<%= movie.Awards %>"></input>
+            <input type="hidden" name="Director" value="<%= movie.Director %>"></input>
+            <input type="hidden" name="Actors" value="<%= movie.Actors %>"></input>
+            <input type="hidden" name="Poster" value="<%= movie.Poster %>"></input>
+
+            <input type="submit" class="btn btn-primary" value="Add to Watchlist">
+          </form>
+          <hr>
+        </div>
       </div>
-
-      <!-- <h1><%- movie %></h1> -->
-
-        <h3>
-          <%= movie.Title %>
-        </h3>
-        <p>
-          Year: <%= movie.Year %>
-        </p>
-        <p>
-          Plot: <%= movie.Plot %>
-        </p>
-        <p>
-          Rating (out of 10): <%= movie.imdbRating %>
-        </p>
-        <p>
-          Rated: <%= movie.Rated %>
-        </p>
-        <p>
-          Awards: <%= movie.Awards %>
-        </p>
-        <p>
-          Director: <%= movie.Director %>
-        </p>
-        <p>
-          Actors: <%= movie.Actors %>
-        </p>
-        <p>
-          <img src="<%= movie.Poster %>" alt="Poster">
-        </p>
-
-        <p>Add a new film or tv show to your watchlist!</p>
-
-
-    <form id="" action="/watchlist" method="post">
-      <input type="hidden" name="Title" value="<%= movie.Title %>"></input>
-      <input type="hidden" name="Year" value="<%= movie.Year %>"></input>
-      <input type="hidden" name="Plot" value="<%= movie.Plot %>"></input>
-      <input type="hidden" name="imdbRating" value="<%= movie.imdbRating %>"></input>
-      <input type="hidden" name="Rated" value="<%= movie.Rated %>"></input>
-      <input type="hidden" name="Awards" value="<%= movie.Awards %>"></input>
-      <input type="hidden" name="Director" value="<%= movie.Director %>"></input>
-      <input type="hidden" name="Actors" value="<%= movie.Actors %>"></input>
-      <input type="hidden" name="Poster" value="<%= movie.Poster %>"></input>
-
-      <input type="submit" class="btn btn-primary" value="Add to Watchlist">
-
-    </form>
-    <hr>
-
-
-  </div>
-</div>
+</body>
